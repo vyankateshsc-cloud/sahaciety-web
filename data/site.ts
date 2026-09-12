@@ -71,6 +71,55 @@ export const knowledge = [
 
 export const intents = [["Start a business", "/services/business"], ["Grow my business", "/services/business"], ["Get a loan", "/services/finance"], ["Find government schemes", "/services/government-schemes"], ["Manage compliance", "/services/compliance"], ["Buy or sell property", "/services/property"], ["Manage my society", "/services/community"], ["Access farmer services", "/services/farmer-rural"], ["Find local services", "/services/local-services"], ["Become a partner", "/become-a-partner"]] as const;
 
+export const helpCards = [
+  { title: "Funding", summary: "Loans, schemes & financial facilitation", icon: WalletCards, href: "/services/finance" },
+  { title: "Business", summary: "Registration, compliance & business growth", icon: Building2, href: "/services/business" },
+  { title: "Government Schemes", summary: "Benefits, eligibility & application assistance", icon: Landmark, href: "/services/government-schemes" },
+  { title: "Property", summary: "Buy, sell, develop & property advisory", icon: MapPinned, href: "/services/property" },
+  { title: "Society", summary: "Management, governance & compliance", icon: Users, href: "/services/community" },
+  { title: "Farmer Services", summary: "Schemes, finance & rural enterprise", icon: Leaf, href: "/services/farmer-rural" },
+] as const;
+
+export const homepageServices = [
+  { title: "Business", summary: "Build and grow with the right support.", items: ["Business Registration", "MSME Services", "GST & Compliance", "Certifications", "Business Advisory"], href: "/services/business", icon: Building2 },
+  { title: "Finance", summary: "Understand funding and move forward.", items: ["Business Loans", "Home / Property Finance", "Government Schemes", "Funding Assistance"], href: "/services/finance", icon: WalletCards },
+  { title: "Property", summary: "Make property decisions with clarity.", items: ["Property Advisory", "Buying & Selling", "Real Estate Development", "RERA-related Services"], href: "/services/property", icon: MapPinned },
+  { title: "Society", summary: "Support better-run communities.", items: ["Society Management", "Governance", "Compliance", "Documentation", "Vendor Services"], href: "/services/community", icon: Users },
+  { title: "Farmer & Rural", summary: "Connect rural needs with useful support.", items: ["Farmer Schemes", "Agri Services", "Rural Enterprise", "Finance Assistance"], href: "/services/farmer-rural", icon: Leaf },
+  { title: "Government & Compliance", summary: "Get help with essential formalities.", items: ["Registrations", "Certifications", "Government Services", "Documentation"], href: "/services/compliance", icon: FileCheck2 },
+] as const;
+
+export const audiences = [
+  ["Individuals & Families", "Everyday services, finance, schemes and property."],
+  ["Businesses & Entrepreneurs", "Setup, growth, funding and compliance."],
+  ["Farmers & Rural Enterprises", "Schemes, finance and local enterprise support."],
+  ["Housing Societies & Communities", "Management, governance and member services."],
+  ["Institutions & Organisations", "Connected services for wider responsibilities."],
+] as const;
+
+export const helpSteps = [
+  ["Tell us what you need", "Start with your goal, in simple words."],
+  ["Find the right service", "See the path that fits your situation."],
+  ["Connect with the right people", "Get the guidance and support you need."],
+  ["Get it done", "Move forward with a clear next step."],
+] as const;
+
+export const whySahaciety = [
+  ["Governance First", "Transparent and structured service delivery."],
+  ["One Ecosystem", "Multiple services through one trusted place."],
+  ["Human Assistance", "Technology where it helps. People where they matter."],
+  ["Verified Connections", "Connect with relevant professionals and service providers."],
+  ["Local Presence", "Services can extend through local partners and centres."],
+  ["End-to-End Support", "From understanding the requirement to completion."],
+] as const;
+
+export const participationPaths = [
+  ["Member", "Use services and stay connected to the ecosystem.", Users],
+  ["Partner", "Bring expertise and help people move forward.", Handshake],
+  ["Centre", "Extend useful assistance into local communities.", Landmark],
+  ["Service Provider", "Offer trusted capability where it is needed.", Handshake],
+] as const;
+
 export function getService(slug: string) { return services.find((service) => service.slug === slug); }
 export function getCategory(slug: string) { return serviceCategories.find((category) => category.slug === slug); }
 export function getSolution(slug: string) { return solutions.find((solution) => solution.slug === slug); }
