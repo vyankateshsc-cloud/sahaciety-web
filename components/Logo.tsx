@@ -1,5 +1,7 @@
+import Image from "next/image";
 import Link from "next/link";
+import logo from "../data/logo.png";
 
 export default function Logo({ footer = false }: { footer?: boolean }) {
-  return <Link href="/" className={`logo ${footer ? "logo-footer" : ""}`} aria-label="Sahaciety home"><svg className="logo-emblem" viewBox="0 0 88 88" role="img" aria-label="Sahaciety emblem"><path className="logo-navy" d="M40 4 25 19 32 34 18 42 5 32 2 50l16 10 9-7 8 13-13 11 17 8 11-17 12 2 7 17 18-9-4-18 12-7-8-17-17 8-8-13 11-10-16-8-11 16Z" /><path className="logo-gold" d="m48 2 22 4 11 14-11 12-19-3-9-12Z" /><path className="logo-gold" d="m73 31 13 8 2 22-16 8-12-15 4-18Z" /><path className="logo-navy" d="M39 52c0-7 5-12 11-12s11 5 11 12c0 4-2 7-5 9H44c-3-2-5-5-5-9Z" /><circle className="logo-gold-fill" cx="50" cy="34" r="7" /><path className="logo-navy" d="M29 38c0-6 4-10 9-10s9 4 9 10c0 3-1 5-3 7H32c-2-2-3-4-3-7Zm30 5c0-5 4-9 9-9s9 4 9 9c0 3-1 5-3 7H62c-2-2-3-4-3-7Z" /><circle className="logo-gold-fill" cx="38" cy="25" r="5" /><circle className="logo-gold-fill" cx="68" cy="28" r="5" /></svg><span className="logo-copy"><strong>SAHACIETY</strong><small>Governance-led ecosystem</small></span></Link>;
+  return <Link href="/" className={`logo ${footer ? "logo-footer" : ""}`} aria-label="Sahaciety home"><Image src={logo} alt="Sahaciety" priority={!footer} className="logo-image" /><span className="logo-descriptor">Governance-led ecosystem</span></Link>;
 }

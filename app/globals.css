@@ -50,13 +50,11 @@ button, input { font: inherit; }
 .header-inner { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 28px; }
 .brand { display: inline-flex; align-items: center; gap: 11px; font-size: 15px; letter-spacing: .08em; }
 .logo { display: inline-flex; align-items: center; gap: 9px; color: #fff; }
-.logo-emblem { width: 43px; height: 43px; flex: none; padding: 2px; border-radius: 50%; background: #fff; }
-.logo-navy { fill: #102d54; }
-.logo-gold { fill: #b8872e; }
-.logo-gold-fill { fill: #b8872e; }
-.logo-copy { display: grid; gap: 3px; font-size: 15px; font-weight: 800; letter-spacing: .08em; }
-.logo-copy small { color: rgba(255,255,255,.58); font-family: 'DM Sans', sans-serif; font-size: 8px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
-.logo-footer .logo-copy small { color: rgba(255,255,255,.58); }
+.logo-image { width: 128px; height: 51px; object-fit: contain; object-position: center; }
+.logo-descriptor { display: block; max-width: 100px; color: rgba(255,255,255,.58); font-family: 'DM Sans', sans-serif; font-size: 8px; font-weight: 600; letter-spacing: .12em; line-height: 1.35; text-transform: uppercase; }
+.logo-footer { align-items: flex-start; flex-direction: column; gap: 5px; }
+.logo-footer .logo-image { width: 155px; height: 79px; }
+.logo-footer .logo-descriptor { max-width: 190px; }
 .desktop-nav { display: flex; align-items: center; gap: 25px; color: rgba(255,255,255,.72); font-size: 13px; font-weight: 600; }
 .desktop-nav a:hover, .login-link:hover { color: #fff; }
 .header-actions { display: flex; align-items: center; gap: 18px; }
