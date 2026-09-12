@@ -1,0 +1,7 @@
+import Link from "next/link";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { PageShell, SectionHeading } from "../../components/Shell";
+
+export const metadata = { title: "Become a Partner", description: "Start a conversation about participating as a Sahaciety partner." };
+
+export default function BecomePartnerPage() { return <PageShell eyebrow="Participation" title="Bring your expertise, services or local capacity." intro="Partner participation will be shaped around real capability, responsible service and clear expectations. Start with a conversation, not a promise."><section className="section"><div className="container split-section"><div><SectionHeading eyebrow="A responsible start" title="Tell us what you can help make possible." intro="Share your area, geography and the kind of people or organisations you support. A future partner workflow can connect this interest to the Sahaciety Runtime." /><Link href="/contact" className="button button-dark">Start a conversation <ArrowUpRight size={17} /></Link></div><div className="detail-panel"><p className="eyebrow">Useful context to share</p>{["Your service or area of expertise", "The communities or sectors you understand", "Where you can provide capacity", "What a responsible collaboration would look like"].map((item) => <div className="detail-points" key={item}><div><CheckCircle2 size={18} /><span>{item}</span></div></div>)}</div></div></section></PageShell>; }

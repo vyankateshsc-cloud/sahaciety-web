@@ -1,0 +1,13 @@
+import Link from "next/link";
+import { ArrowRight, ArrowUpRight, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Service } from "../data/site";
+import { SectionHeading } from "./Shell";
+
+export function ServiceDetail({ service }: { service: Service }) {
+  const Icon = service.icon;
+  return <section className="section"><div className="container detail-grid"><div><span className="icon-tile"><Icon size={25} /></span><p className="eyebrow detail-eyebrow">{service.category}</p><h2>{service.title}</h2><p className="detail-lede">{service.detail}</p><div className="detail-actions"><Link href="/ask-sahaciety" className="button button-dark">Start a conversation <ArrowUpRight size={17} /></Link><Link href="/services" className="text-link">Browse services <ArrowRight size={16} /></Link></div></div><div className="detail-panel"><p className="eyebrow">What to expect</p><h3>A guided starting point for {service.audience.toLowerCase()}.</h3><div className="detail-points">{service.bullets.map((bullet) => <div key={bullet}><CheckCircle2 size={18} /><span>{bullet}</span></div>)}</div><div className="detail-note"><ShieldCheck size={18} /><span>Specific eligibility, timelines and outcomes depend on the details of your request.</span></div></div></div></section>;
+}
+
+export function ArticleDetail({ category, title, summary }: { category: string; title: string; summary: string }) {
+  return <section className="section"><div className="container article-layout"><article><p className="eyebrow">{category}</p><h2>{title}</h2><p className="article-lede">{summary}</p><p>Good decisions begin with a clear view of the situation. Sahaciety knowledge content is designed to help you understand the usual questions, documents and responsibilities before you take a service forward.</p><h3>Start with the facts</h3><p>Use this guide as a conversation starter, not as a substitute for professional or official advice. The right next step depends on your context, eligibility and the evidence available.</p><h3>Turn understanding into action</h3><p>When you are ready, share what you are trying to accomplish. Sahaciety can help connect the question to a relevant service pathway without making promises that have not been verified.</p></article><aside className="article-aside"><p className="eyebrow">Need a starting point?</p><h3>Ask Sahaciety about your situation.</h3><Link href="/ask-sahaciety" className="button button-dark">Ask Sahaciety <ArrowUpRight size={17} /></Link></aside></div></section>;
+}

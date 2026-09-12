@@ -1,0 +1,7 @@
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
+import { PageShell, SectionHeading } from "../../components/Shell";
+
+export const metadata = { title: "About Sahaciety", description: "Understand Sahaciety's governance-led ecosystem approach." };
+
+export default function AboutPage() { return <PageShell eyebrow="About Sahaciety" title="A broader way to connect people, services and participation." intro="Sahaciety is a governance-led ecosystem designed to connect people, businesses and societies with services, execution and participation."><section className="section"><div className="container split-section"><div><SectionHeading eyebrow="The idea" title="Governance + services + execution + participation." intro="Sahaciety can facilitate finance, property, compliance and community services where appropriate, but it is not limited to any one of them. The platform identity is the ecosystem around the journey." /><Link href="/services" className="button button-dark">Explore services <ArrowUpRight size={17} /></Link></div><div className="detail-panel"><p className="eyebrow">What this means</p>{["Start with a real human or institutional need", "Make the right service and responsibility visible", "Connect execution to evidence and completion", "Leave room for people to participate in what comes next"].map((item) => <div className="detail-points" key={item}><div><CheckCircle2 size={18} /><span>{item}</span></div></div>)}</div></div></section></PageShell>; }

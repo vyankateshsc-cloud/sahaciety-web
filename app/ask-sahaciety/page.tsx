@@ -1,0 +1,8 @@
+import Link from "next/link";
+import { ArrowUpRight, CircleHelp } from "lucide-react";
+import { PageShell, SectionHeading } from "../../components/Shell";
+import IntentSearch from "../../components/IntentSearch";
+
+export const metadata = { title: "Ask Sahaciety", description: "Tell Sahaciety what you are trying to accomplish and find a useful starting point." };
+
+export default function AskPage() { return <PageShell eyebrow="Ask Sahaciety" title="Not sure where to start? Begin with the goal." intro="This is the future entry point for SHAVA. For now, choose a goal below or start a conversation so the right path can be shaped around your context."><section className="section"><div className="container ask-page-grid"><div className="ask-prompt"><CircleHelp size={28} /><SectionHeading eyebrow="Intent first" title="What are you trying to accomplish?" intro="You do not need to know the name of a service before you begin." /><IntentSearch /></div><div className="detail-panel"><p className="eyebrow">A useful next step</p><h3>Good guidance starts with context.</h3><p className="panel-copy">Tell Sahaciety what you need, who it is for and where you are in the journey. Specific service and Runtime connections can be added later without redesigning this experience.</p><Link href="/contact" className="text-link">Contact Sahaciety <ArrowUpRight size={16} /></Link></div></div></section></PageShell>; }

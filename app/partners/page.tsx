@@ -1,0 +1,9 @@
+import Link from "next/link";
+import { ArrowUpRight, Building2, Handshake, Landmark, Users } from "lucide-react";
+import { PageShell, SectionHeading } from "../../components/Shell";
+
+export const metadata = { title: "Partners", description: "Explore the partner ecosystem around Sahaciety." };
+
+const partnerTypes = [["Financial institutions", "Connect people to relevant finance pathways.", Building2], ["Professional services", "Bring trusted expertise into service journeys.", Handshake], ["Real estate ecosystem", "Support property, development and documentation needs.", Landmark], ["Local providers and centres", "Extend useful human assistance into communities.", Users]] as const;
+
+export default function PartnersPage() { return <PageShell eyebrow="Partner ecosystem" title="The right ecosystem is built with the right people." intro="Sahaciety is designed to connect institutions, professionals, service providers and centres around responsible execution."><section className="section"><div className="container"><SectionHeading eyebrow="Potential partner paths" title="Room for capability, context and local trust." intro="These are future-facing categories, not claims of existing relationships. Partner data will come from the Sahaciety Runtime when available." /><div className="directory-grid">{partnerTypes.map(([title, summary, Icon]) => <div className="directory-card" key={title}><span className="icon-tile"><Icon size={23} /></span><h2>{title}</h2><p>{summary}</p></div>)}</div><div className="callout"><div><p className="eyebrow">Interested in contributing?</p><h2>Tell us how you can add capacity to the ecosystem.</h2></div><Link href="/become-a-partner" className="button button-dark">Become a partner <ArrowUpRight size={17} /></Link></div></div></section></PageShell>; }

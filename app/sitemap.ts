@@ -1,0 +1,4 @@
+import { MetadataRoute } from "next";
+import { knowledge, serviceCategories, services, solutions } from "../data/site";
+
+export default function sitemap(): MetadataRoute.Sitemap { const base = "https://www.sahaciety.in"; return ["", "/about", "/services", "/solutions", "/partners", "/become-a-partner", "/knowledge", "/ask-sahaciety", "/contact", "/login"].map((path) => ({ url: `${base}${path}`, lastModified: new Date() })).concat(serviceCategories.map(({ slug }) => ({ url: `${base}/services/${slug}`, lastModified: new Date() })), services.map(({ slug }) => ({ url: `${base}/service/${slug}`, lastModified: new Date() })), solutions.map(({ slug }) => ({ url: `${base}/solutions/${slug}`, lastModified: new Date() })), knowledge.map(({ slug }) => ({ url: `${base}/knowledge/${slug}`, lastModified: new Date() }))); }
