@@ -43,6 +43,15 @@ export const serviceCategories = [
   { slug: "participation", title: "Participation", summary: "Find your place as a member, partner, centre or contributor.", icon: Handshake, services: ["Become a member", "Become a partner", "Become a centre", "Participate in the ecosystem"] },
 ] as const;
 
+export const categoryStages: Record<string, { title: string; items: string[] }[]> = {
+  business: [{ title: "Starting", items: ["Business setup", "Udyam", "GST", "Registrations"] }, { title: "Growing", items: ["Business advisory", "Digital growth", "Certifications"] }, { title: "Funding", items: ["Loans", "Government schemes", "Project finance"] }, { title: "Compliance", items: ["GST", "Licences", "Renewals"] }],
+  finance: [{ title: "Understand", items: ["Funding discovery", "Finance options", "Eligibility guidance"] }, { title: "Prepare", items: ["Business information", "Project report", "Bank documentation"] }, { title: "Apply", items: ["Loans", "Government schemes", "Financial facilitation"] }],
+  property: [{ title: "Discover", items: ["Property advisory", "Search", "Buying and selling"] }, { title: "Verify", items: ["Due diligence", "Documentation", "RERA-related support"] }, { title: "Complete", items: ["Finance", "Transaction support", "Post-purchase services"] }],
+  community: [{ title: "Organise", items: ["Society management", "Documentation", "Member services"] }, { title: "Govern", items: ["Governance", "Compliance", "Accounts"] }, { title: "Improve", items: ["Vendor services", "Redevelopment", "Ongoing support"] }],
+  "farmer-rural": [{ title: "Assess", items: ["Farmer schemes", "Agri services", "Activity context"] }, { title: "Fund", items: ["Finance assistance", "Scheme discovery", "Documentation"] }, { title: "Grow", items: ["Rural enterprise", "Local services", "Market support"] }],
+  "government-schemes": [{ title: "Discover", items: ["Scheme discovery", "Eligibility guidance"] }, { title: "Prepare", items: ["Documentation support", "Application assistance"] }, { title: "Follow through", items: ["Status questions", "Next steps", "Related services"] }],
+};
+
 const categoryDetails: Record<string, { audience: string; detail: string }> = {
   business: { audience: "Businesses & entrepreneurs", detail: "A practical starting point for founders and growing businesses that need to make progress across setup, finance, compliance and growth." }, finance: { audience: "Individuals, families and businesses", detail: "Understand the route to funding before you begin, with guidance that keeps eligibility, documents and next steps visible." }, "government-schemes": { audience: "Citizens, families and communities", detail: "Move from scheme discovery to a clearer understanding of eligibility and documentation without promising an outcome before the facts are known." }, "farmer-rural": { audience: "Farmers and rural enterprises", detail: "Connect rural enterprise goals with relevant services, local capacity and finance facilitation." }, community: { audience: "Societies and communities", detail: "Support more organised community operations through visible responsibilities, records, services and governance pathways." }, property: { audience: "Property owners, buyers and developers", detail: "Bring property advisory, documentation, development and finance connection into a more understandable journey." }, compliance: { audience: "Businesses and institutions", detail: "Keep the steps around registrations, certifications and governance support clear as an organisation grows." }, "local-services": { audience: "Citizens and local communities", detail: "Find relevant local services and human assistance without having to understand the whole ecosystem first." }, participation: { audience: "Members, partners and centres", detail: "Explore responsible ways to contribute to Sahaciety and the communities it serves." },
 };
@@ -72,12 +81,12 @@ export const knowledge = [
 export const intents = [["Start a business", "/services/business"], ["Grow my business", "/services/business"], ["Get a loan", "/services/finance"], ["Find government schemes", "/services/government-schemes"], ["Manage compliance", "/services/compliance"], ["Buy or sell property", "/services/property"], ["Manage my society", "/services/community"], ["Access farmer services", "/services/farmer-rural"], ["Find local services", "/services/local-services"], ["Become a partner", "/become-a-partner"]] as const;
 
 export const helpCards = [
-  { title: "Funding", summary: "Loans, schemes & financial facilitation", icon: WalletCards, href: "/services/finance" },
-  { title: "Business", summary: "Registration, compliance & business growth", icon: Building2, href: "/services/business" },
-  { title: "Government Schemes", summary: "Benefits, eligibility & application assistance", icon: Landmark, href: "/services/government-schemes" },
-  { title: "Property", summary: "Buy, sell, develop & property advisory", icon: MapPinned, href: "/services/property" },
-  { title: "Society", summary: "Management, governance & compliance", icon: Users, href: "/services/community" },
-  { title: "Farmer Services", summary: "Schemes, finance & rural enterprise", icon: Leaf, href: "/services/farmer-rural" },
+  { title: "Funding", summary: "Loans, schemes & financial facilitation", icon: WalletCards, href: "/services/finance", path: "funding" },
+  { title: "Business", summary: "Registration, compliance & business growth", icon: Building2, href: "/services/business", path: "business" },
+  { title: "Government Schemes", summary: "Benefits, eligibility & application assistance", icon: Landmark, href: "/services/government-schemes", path: "scheme" },
+  { title: "Property", summary: "Buy, sell, develop & property advisory", icon: MapPinned, href: "/services/property", path: "property" },
+  { title: "Society", summary: "Management, governance & compliance", icon: Users, href: "/services/community", path: "society" },
+  { title: "Farmer Services", summary: "Schemes, finance & rural enterprise", icon: Leaf, href: "/services/farmer-rural", path: "farmer" },
 ] as const;
 
 export const homepageServices = [
@@ -102,6 +111,13 @@ export const helpSteps = [
   ["Find the right service", "See the path that fits your situation."],
   ["Connect with the right people", "Get the guidance and support you need."],
   ["Get it done", "Move forward with a clear next step."],
+] as const;
+
+export const homepageJourneys = [
+  { title: "Business", stages: ["Start", "Register", "Fund", "Comply", "Grow"], href: "/diagnostic?path=business" },
+  { title: "Property", stages: ["Discover", "Finance", "Verify", "Transact", "Manage"], href: "/diagnostic?path=property" },
+  { title: "Society", stages: ["Organise", "Govern", "Comply", "Manage", "Improve"], href: "/diagnostic?path=society" },
+  { title: "Farmer & rural", stages: ["Assess", "Scheme", "Finance", "Enterprise", "Grow"], href: "/diagnostic?path=farmer" },
 ] as const;
 
 export const whySahaciety = [

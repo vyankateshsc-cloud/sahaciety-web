@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import MobileNav from "./MobileNav";
 
 export function Header() {
-  return <header className="site-header"><div className="container header-inner"><Link href="/" className="brand" aria-label="Sahaciety home"><span className="brand-mark">S</span><span><strong>SAHACIETY</strong><small>Governance-led ecosystem</small></span></Link><nav className="desktop-nav" aria-label="Primary navigation"><Link href="/services">Services</Link><Link href="/solutions">Solutions</Link><Link href="/about">About</Link><Link href="/knowledge">Knowledge</Link><Link href="/partners">Partners</Link></nav><div className="header-actions"><Link href="/login" className="login-link">Login</Link><Link href="/services" className="button button-small button-light">Get started <ArrowUpRight size={16} /></Link><MobileNav /></div></div></header>;
+  return <header className="site-header"><div className="container header-inner"><Link href="/" className="brand" aria-label="Sahaciety home"><span className="brand-mark">S</span><span><strong>SAHACIETY</strong><small>Governance-led ecosystem</small></span></Link><nav className="desktop-nav" aria-label="Primary navigation"><Link href="/services">Services</Link><Link href="/solutions">Solutions</Link><Link href="/about">About</Link><Link href="/knowledge">Knowledge</Link><Link href="/partners">Partners</Link></nav><div className="header-actions"><Link href="/login" className="login-link">Login</Link><Link href="/diagnostic" className="button button-small button-light">Get started <ArrowUpRight size={16} /></Link><MobileNav /></div></div></header>;
 }
 
 export function Footer() {
