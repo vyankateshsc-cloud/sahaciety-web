@@ -9,7 +9,7 @@ export function generateMetadata({ params }: { params: { slug: string } }) { con
 export default function SchemeArticlePage({ params }: { params: { slug: string } }) {
   const scheme = getScheme(params.slug);
   if (!scheme) notFound();
-  return <PageShell eyebrow="Scheme" title={scheme.title} intro={scheme.tagline}>
+  return <PageShell eyebrow="Scheme" eyebrowMr="योजना" title={scheme.title} titleMr={scheme.titleMr} intro={scheme.tagline} introMr={scheme.taglineMr}>
     <SchemeDetail scheme={scheme} />
   </PageShell>;
 }

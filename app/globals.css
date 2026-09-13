@@ -31,7 +31,7 @@
 .article-aside h3 { margin: 0 0 22px; font-size: 22px; line-height: 1.2; }
 @media (max-width: 900px) { .directory-grid { grid-template-columns: repeat(2, 1fr); } .detail-grid, .article-layout { grid-template-columns: 1fr; gap: 35px; } .article-aside { max-width: 430px; } }
 @media (max-width: 650px) { .directory-grid, .service-list { grid-template-columns: 1fr; } .callout { align-items: flex-start; flex-direction: column; } }
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Montserrat:wght@500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -326,6 +326,12 @@ button, input { font: inherit; }
 @media (max-width: 900px) { .journey-cards, .diagnostic-intents { grid-template-columns: 1fr; } .responsibility-grid { grid-template-columns: 1fr; } .step-meta { grid-template-columns: 1fr; } }
 @media (max-width: 650px) { .diagnostic-shell, .roadmap-shell { padding-top: 55px; } .question-card { padding: 24px; } .roadmap-top, .roadmap-heading, .roadmap-next, .detail-next { align-items: flex-start; flex-direction: column; } .profile-strip > div { min-width: 50%; border-bottom: 1px solid var(--line); } .profile-strip > div:nth-child(even) { border-right: 0; } .roadmap-step-card { grid-template-columns: 1fr; padding: 19px; } .roadmap-step-title { flex-direction: column; } .related-service-grid { grid-template-columns: 1fr; } .service-detail-sections, .related-services-block, .detail-next { margin-left: 0; } }
 
+/* Marathi bilingual text */
+.mr-line { display: block; margin-top: .3em; letter-spacing: normal; text-transform: none; font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 500; font-size: .58em; line-height: 1.4; opacity: .68; }
+h1 .mr-line, h2 .mr-line, h3 .mr-line { color: inherit; }
+.mr-inline { letter-spacing: normal; text-transform: none; font-family: 'Noto Sans Devanagari', sans-serif; font-weight: 500; opacity: .78; }
+.button .mr-inline, .text-link .mr-inline { font-size: .82em; }
+
 /* Milestone summary + scheme matches (diagnostic result) */
 .milestone-summary { margin-top: 30px; padding: 20px 24px; border: 1px solid var(--line); background: #fff; }
 .milestone-summary-top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: var(--ink); }
@@ -398,6 +404,9 @@ button, input { font: inherit; }
 .whatsapp-fab { position: fixed; right: 20px; bottom: 20px; z-index: 30; display: inline-flex; align-items: center; gap: 9px; padding: 14px 18px; border-radius: 999px; background: #1f9d5a; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; box-shadow: 0 14px 30px rgba(31,157,90,.35); transition: transform .2s ease; }
 .whatsapp-fab:hover { transform: translateY(-3px); }
 @media (max-width: 650px) { .whatsapp-fab span { display: none; } .whatsapp-fab { padding: 14px; right: 16px; bottom: 16px; } }
+
+.floating-dock { opacity: 0; transform: translateY(8px); pointer-events: none; transition: opacity .25s ease, transform .25s ease; }
+.floating-dock.is-visible { opacity: 1; transform: none; pointer-events: auto; }
 
 /* Ask Sahaciety assistant */
 .ask-assistant-fab { position: fixed; left: 20px; bottom: 20px; z-index: 30; display: inline-flex; align-items: center; gap: 9px; padding: 14px 18px; border: 0; border-radius: 999px; background: var(--ink); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; box-shadow: 0 14px 30px rgba(16,37,63,.28); cursor: pointer; transition: transform .2s ease; }

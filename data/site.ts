@@ -29,7 +29,12 @@ export const ecosystem = [
 ] as const;
 
 export const trustPrinciples = [
-  ["Governance-led", "Clear ownership and responsible pathways."], ["Transparent", "Understand what happens next."], ["Verified ecosystem", "Relevant people and services, connected carefully."], ["End-to-end execution", "Move from intent to completion."], ["Local presence", "Human context where it matters."], ["Technology enabled", "A simpler experience backed by a stronger runtime."],
+  ["Governance-led", "Clear ownership and responsible pathways.", "सुशासन-आधारित", "स्पष्ट जबाबदारी आणि जबाबदार मार्ग."],
+  ["Transparent", "Understand what happens next.", "पारदर्शक", "पुढे काय होणार आहे ते समजून घ्या."],
+  ["Verified ecosystem", "Relevant people and services, connected carefully.", "पडताळणी केलेली परिसंस्था", "योग्य लोक आणि सेवा, काळजीपूर्वक जोडलेल्या."],
+  ["End-to-end execution", "Move from intent to completion.", "सुरुवातीपासून शेवटपर्यंत अंमलबजावणी", "इच्छेपासून पूर्णत्वापर्यंत वाटचाल."],
+  ["Local presence", "Human context where it matters.", "स्थानिक उपस्थिती", "गरज तिथे माणुसकीचा दृष्टिकोन."],
+  ["Technology enabled", "A simpler experience backed by a stronger runtime.", "तंत्रज्ञान-सक्षम", "सशक्त यंत्रणेच्या आधारे सोपा अनुभव."],
 ] as const;
 
 export const journeys = [
@@ -75,70 +80,72 @@ export const solutions = [
 ] as const;
 
 export const knowledge = [
-  { slug: "schemes-eligibility", category: "Schemes & eligibility", title: "How to begin with a government scheme", summary: "A simple checklist for moving from a broad need to a relevant scheme and a clearer next step." },
-  { slug: "business-compliance", category: "Business & compliance", title: "The useful order for setting up a business", summary: "Understand the decisions, registrations and documents that commonly shape an early business journey." },
-  { slug: "property-rera", category: "Property & RERA", title: "Questions to ask before a property decision", summary: "A practical starting point for documentation, context and professional guidance." },
-  { slug: "society-governance", category: "Society governance", title: "What visible governance looks like", summary: "Why clear records, responsibilities and communication help communities operate with trust." },
-  { slug: "farmer-services", category: "Farmer & rural services", title: "Connecting rural enterprise to support", summary: "Map the people, finance and services that can help a rural idea move forward." },
-  { slug: "finance-first-steps", category: "Loans & finance", title: "What to understand before seeking finance", summary: "Prepare the goal, documents and questions that make a funding conversation more useful." },
+  { slug: "schemes-eligibility", category: "Schemes & eligibility", categoryMr: "योजना व पात्रता", title: "How to begin with a government scheme", titleMr: "सरकारी योजनेची सुरुवात कशी करावी", summary: "A simple checklist for moving from a broad need to a relevant scheme and a clearer next step.", summaryMr: "सर्वसाधारण गरजेपासून योग्य योजनेपर्यंत आणि स्पष्ट पुढील पावलापर्यंत पोहोचण्यासाठी सोपी यादी." },
+  { slug: "business-compliance", category: "Business & compliance", categoryMr: "व्यवसाय व अनुपालन", title: "The useful order for setting up a business", titleMr: "व्यवसाय सुरू करण्याचा उपयुक्त क्रम", summary: "Understand the decisions, registrations and documents that commonly shape an early business journey.", summaryMr: "सुरुवातीच्या व्यवसाय प्रवासाला आकार देणारे निर्णय, नोंदणी आणि कागदपत्रे समजून घ्या." },
+  { slug: "property-rera", category: "Property & RERA", categoryMr: "मालमत्ता व रेरा", title: "Questions to ask before a property decision", titleMr: "मालमत्तेचा निर्णय घेण्यापूर्वी विचारायचे प्रश्न", summary: "A practical starting point for documentation, context and professional guidance.", summaryMr: "कागदपत्रे, पार्श्वभूमी आणि व्यावसायिक मार्गदर्शनासाठी एक व्यावहारिक सुरुवात." },
+  { slug: "society-governance", category: "Society governance", categoryMr: "सोसायटी प्रशासन", title: "What visible governance looks like", titleMr: "दृश्यमान प्रशासन म्हणजे काय", summary: "Why clear records, responsibilities and communication help communities operate with trust." , summaryMr: "स्पष्ट नोंदी, जबाबदाऱ्या आणि संवाद समुदायांना विश्वासाने काम करण्यास कशी मदत करतात."},
+  { slug: "farmer-services", category: "Farmer & rural services", categoryMr: "शेतकरी व ग्रामीण सेवा", title: "Connecting rural enterprise to support", titleMr: "ग्रामीण उद्योगाला सहाय्याशी जोडणे", summary: "Map the people, finance and services that can help a rural idea move forward.", summaryMr: "ग्रामीण कल्पनेला पुढे नेण्यास मदत करणारे लोक, वित्त आणि सेवा शोधा." },
+  { slug: "finance-first-steps", category: "Loans & finance", categoryMr: "कर्ज व वित्त", title: "What to understand before seeking finance", titleMr: "वित्त सहाय्य घेण्यापूर्वी काय समजून घ्यावे", summary: "Prepare the goal, documents and questions that make a funding conversation more useful.", summaryMr: "निधीबाबतची चर्चा अधिक उपयुक्त बनवणारे ध्येय, कागदपत्रे आणि प्रश्न तयार करा." },
 ] as const;
 
-export const intents = [["Start a business", "/services/business"], ["Grow my business", "/services/business"], ["Get a loan", "/services/finance"], ["Find government schemes", "/services/government-schemes"], ["Manage compliance", "/services/compliance"], ["Buy or sell property", "/services/property"], ["Manage my society", "/services/community"], ["Access farmer services", "/services/farmer-rural"], ["Find local services", "/services/local-services"], ["Become a partner", "/become-a-partner"]] as const;
+export const intents = [
+  ["Start a business", "/services/business", "व्यवसाय सुरू करा"], ["Grow my business", "/services/business", "माझा व्यवसाय वाढवा"], ["Get a loan", "/services/finance", "कर्ज मिळवा"], ["Find government schemes", "/services/government-schemes", "सरकारी योजना शोधा"], ["Manage compliance", "/services/compliance", "अनुपालन सांभाळा"], ["Buy or sell property", "/services/property", "मालमत्ता खरेदी किंवा विक्री करा"], ["Manage my society", "/services/community", "माझी सोसायटी सांभाळा"], ["Access farmer services", "/services/farmer-rural", "शेतकरी सेवांचा लाभ घ्या"], ["Find local services", "/services/local-services", "स्थानिक सेवा शोधा"], ["Become a partner", "/become-a-partner", "भागीदार व्हा"],
+] as const;
 
 export const helpCards = [
-  { title: "Funding", summary: "Loans, schemes & financial facilitation", icon: WalletCards, href: "/services/finance", path: "funding" },
-  { title: "Business", summary: "Registration, compliance & business growth", icon: Building2, href: "/services/business", path: "business" },
-  { title: "Government Schemes", summary: "Benefits, eligibility & application assistance", icon: Landmark, href: "/services/government-schemes", path: "scheme" },
-  { title: "Property", summary: "Buy, sell, develop & property advisory", icon: MapPinned, href: "/services/property", path: "property" },
-  { title: "Society", summary: "Management, governance & compliance", icon: Users, href: "/services/community", path: "society" },
-  { title: "Farmer Services", summary: "Schemes, finance & rural enterprise", icon: Leaf, href: "/services/farmer-rural", path: "farmer" },
+  { title: "Funding", summary: "Loans, schemes & financial facilitation", titleMr: "निधी", summaryMr: "कर्ज, योजना आणि आर्थिक सहाय्य", icon: WalletCards, href: "/services/finance", path: "funding" },
+  { title: "Business", summary: "Registration, compliance & business growth", titleMr: "व्यवसाय", summaryMr: "नोंदणी, अनुपालन आणि व्यवसाय वाढ", icon: Building2, href: "/services/business", path: "business" },
+  { title: "Government Schemes", summary: "Benefits, eligibility & application assistance", titleMr: "सरकारी योजना", summaryMr: "लाभ, पात्रता आणि अर्ज सहाय्य", icon: Landmark, href: "/services/government-schemes", path: "scheme" },
+  { title: "Property", summary: "Buy, sell, develop & property advisory", titleMr: "मालमत्ता", summaryMr: "खरेदी, विक्री, विकास आणि सल्ला", icon: MapPinned, href: "/services/property", path: "property" },
+  { title: "Society", summary: "Management, governance & compliance", titleMr: "सोसायटी", summaryMr: "व्यवस्थापन, प्रशासन आणि अनुपालन", icon: Users, href: "/services/community", path: "society" },
+  { title: "Farmer Services", summary: "Schemes, finance & rural enterprise", titleMr: "शेतकरी सेवा", summaryMr: "योजना, वित्त आणि ग्रामीण उद्योग", icon: Leaf, href: "/services/farmer-rural", path: "farmer" },
 ] as const;
 
 export const homepageServices = [
-  { title: "Business", summary: "Build and grow with the right support.", items: ["Business Registration", "MSME Services", "GST & Compliance", "Certifications", "Business Advisory"], href: "/services/business", icon: Building2 },
-  { title: "Finance", summary: "Understand funding and move forward.", items: ["Business Loans", "Home / Property Finance", "Government Schemes", "Funding Assistance"], href: "/services/finance", icon: WalletCards },
-  { title: "Property", summary: "Make property decisions with clarity.", items: ["Property Advisory", "Buying & Selling", "Real Estate Development", "RERA-related Services"], href: "/services/property", icon: MapPinned },
-  { title: "Society", summary: "Support better-run communities.", items: ["Society Management", "Governance", "Compliance", "Documentation", "Vendor Services"], href: "/services/community", icon: Users },
-  { title: "Farmer & Rural", summary: "Connect rural needs with useful support.", items: ["Farmer Schemes", "Agri Services", "Rural Enterprise", "Finance Assistance"], href: "/services/farmer-rural", icon: Leaf },
-  { title: "Government & Compliance", summary: "Get help with essential formalities.", items: ["Registrations", "Certifications", "Government Services", "Documentation"], href: "/services/compliance", icon: FileCheck2 },
+  { title: "Business", summary: "Build and grow with the right support.", titleMr: "व्यवसाय", summaryMr: "योग्य सहाय्याने उभारणी आणि वाढ करा.", items: ["Business Registration", "MSME Services", "GST & Compliance", "Certifications", "Business Advisory"], itemsMr: ["व्यवसाय नोंदणी", "एमएसएमई सेवा", "जीएसटी व अनुपालन", "प्रमाणपत्रे", "व्यवसाय सल्ला"], href: "/services/business", icon: Building2 },
+  { title: "Finance", summary: "Understand funding and move forward.", titleMr: "वित्त", summaryMr: "निधी समजून घ्या आणि पुढे जा.", items: ["Business Loans", "Home / Property Finance", "Government Schemes", "Funding Assistance"], itemsMr: ["व्यवसाय कर्ज", "गृह / मालमत्ता वित्त", "सरकारी योजना", "निधी सहाय्य"], href: "/services/finance", icon: WalletCards },
+  { title: "Property", summary: "Make property decisions with clarity.", titleMr: "मालमत्ता", summaryMr: "स्पष्टतेने मालमत्तेचे निर्णय घ्या.", items: ["Property Advisory", "Buying & Selling", "Real Estate Development", "RERA-related Services"], itemsMr: ["मालमत्ता सल्ला", "खरेदी व विक्री", "रिअल इस्टेट विकास", "रेरा-संबंधित सेवा"], href: "/services/property", icon: MapPinned },
+  { title: "Society", summary: "Support better-run communities.", titleMr: "सोसायटी", summaryMr: "अधिक चांगल्या चालणाऱ्या समुदायांसाठी सहाय्य.", items: ["Society Management", "Governance", "Compliance", "Documentation", "Vendor Services"], itemsMr: ["सोसायटी व्यवस्थापन", "प्रशासन", "अनुपालन", "कागदपत्रे", "वेंडर सेवा"], href: "/services/community", icon: Users },
+  { title: "Farmer & Rural", summary: "Connect rural needs with useful support.", titleMr: "शेतकरी व ग्रामीण", summaryMr: "ग्रामीण गरजांना उपयुक्त सहाय्याशी जोडा.", items: ["Farmer Schemes", "Agri Services", "Rural Enterprise", "Finance Assistance"], itemsMr: ["शेतकरी योजना", "कृषी सेवा", "ग्रामीण उद्योग", "वित्त सहाय्य"], href: "/services/farmer-rural", icon: Leaf },
+  { title: "Government & Compliance", summary: "Get help with essential formalities.", titleMr: "सरकार व अनुपालन", summaryMr: "आवश्यक औपचारिकतांसाठी मदत मिळवा.", items: ["Registrations", "Certifications", "Government Services", "Documentation"], itemsMr: ["नोंदणी", "प्रमाणपत्रे", "सरकारी सेवा", "कागदपत्रे"], href: "/services/compliance", icon: FileCheck2 },
 ] as const;
 
 export const audiences = [
-  ["Individuals & Families", "Everyday services, finance, schemes and property."],
-  ["Businesses & Entrepreneurs", "Setup, growth, funding and compliance."],
-  ["Farmers & Rural Enterprises", "Schemes, finance and local enterprise support."],
-  ["Housing Societies & Communities", "Management, governance and member services."],
-  ["Institutions & Organisations", "Connected services for wider responsibilities."],
+  ["Individuals & Families", "Everyday services, finance, schemes and property.", "व्यक्ती व कुटुंबे", "दैनंदिन सेवा, वित्त, योजना आणि मालमत्ता."],
+  ["Businesses & Entrepreneurs", "Setup, growth, funding and compliance.", "व्यवसाय व उद्योजक", "सुरुवात, वाढ, निधी आणि अनुपालन."],
+  ["Farmers & Rural Enterprises", "Schemes, finance and local enterprise support.", "शेतकरी व ग्रामीण उद्योग", "योजना, वित्त आणि स्थानिक उद्योग सहाय्य."],
+  ["Housing Societies & Communities", "Management, governance and member services.", "गृहनिर्माण सोसायट्या व समुदाय", "व्यवस्थापन, प्रशासन आणि सदस्य सेवा."],
+  ["Institutions & Organisations", "Connected services for wider responsibilities.", "संस्था व संघटना", "व्यापक जबाबदाऱ्यांसाठी जोडलेल्या सेवा."],
 ] as const;
 
 export const helpSteps = [
-  ["Tell us what you need", "Start with your goal, in simple words."],
-  ["Find the right service", "See the path that fits your situation."],
-  ["Connect with the right people", "Get the guidance and support you need."],
-  ["Get it done", "Move forward with a clear next step."],
+  ["Tell us what you need", "Start with your goal, in simple words.", "तुम्हाला काय हवे ते सांगा", "सोप्या शब्दांत तुमच्या ध्येयाने सुरुवात करा."],
+  ["Find the right service", "See the path that fits your situation.", "योग्य सेवा शोधा", "तुमच्या परिस्थितीला साजेसा मार्ग पहा."],
+  ["Connect with the right people", "Get the guidance and support you need.", "योग्य लोकांशी जोडले जा", "तुम्हाला आवश्यक मार्गदर्शन आणि सहाय्य मिळवा."],
+  ["Get it done", "Move forward with a clear next step.", "पूर्ण करा", "स्पष्ट पुढील पावलासह वाटचाल करा."],
 ] as const;
 
 export const homepageJourneys = [
-  { title: "Business", stages: ["Start", "Register", "Fund", "Comply", "Grow"], href: "/diagnostic?path=business" },
-  { title: "Property", stages: ["Discover", "Finance", "Verify", "Transact", "Manage"], href: "/diagnostic?path=property" },
-  { title: "Society", stages: ["Organise", "Govern", "Comply", "Manage", "Improve"], href: "/diagnostic?path=society" },
-  { title: "Farmer & rural", stages: ["Assess", "Scheme", "Finance", "Enterprise", "Grow"], href: "/diagnostic?path=farmer" },
+  { title: "Business", titleMr: "व्यवसाय", stages: ["Start", "Register", "Fund", "Comply", "Grow"], stagesMr: ["सुरुवात", "नोंदणी", "निधी", "अनुपालन", "वाढ"], href: "/diagnostic?path=business" },
+  { title: "Property", titleMr: "मालमत्ता", stages: ["Discover", "Finance", "Verify", "Transact", "Manage"], stagesMr: ["शोध", "वित्त", "पडताळणी", "व्यवहार", "व्यवस्थापन"], href: "/diagnostic?path=property" },
+  { title: "Society", titleMr: "सोसायटी", stages: ["Organise", "Govern", "Comply", "Manage", "Improve"], stagesMr: ["संघटन", "प्रशासन", "अनुपालन", "व्यवस्थापन", "सुधारणा"], href: "/diagnostic?path=society" },
+  { title: "Farmer & rural", titleMr: "शेतकरी व ग्रामीण", stages: ["Assess", "Scheme", "Finance", "Enterprise", "Grow"], stagesMr: ["मूल्यांकन", "योजना", "वित्त", "उद्योग", "वाढ"], href: "/diagnostic?path=farmer" },
 ] as const;
 
 export const whySahaciety = [
-  ["Governance First", "Transparent and structured service delivery."],
-  ["One Ecosystem", "Multiple services through one trusted place."],
-  ["Human Assistance", "Technology where it helps. People where they matter."],
-  ["Verified Connections", "Connect with relevant professionals and service providers."],
-  ["Local Presence", "Services can extend through local partners and centres."],
-  ["End-to-End Support", "From understanding the requirement to completion."],
+  ["Governance First", "Transparent and structured service delivery.", "प्रशासन प्रथम", "पारदर्शक आणि सुसंरचित सेवा वितरण."],
+  ["One Ecosystem", "Multiple services through one trusted place.", "एक परिसंस्था", "एका विश्वासार्ह ठिकाणाहून अनेक सेवा."],
+  ["Human Assistance", "Technology where it helps. People where they matter.", "मानवी सहाय्य", "जिथे उपयुक्त तिथे तंत्रज्ञान, जिथे गरज तिथे माणसे."],
+  ["Verified Connections", "Connect with relevant professionals and service providers.", "पडताळणी केलेले संबंध", "योग्य व्यावसायिक आणि सेवा पुरवठादारांशी जोडले जा."],
+  ["Local Presence", "Services can extend through local partners and centres.", "स्थानिक उपस्थिती", "स्थानिक भागीदार आणि केंद्रांद्वारे सेवांचा विस्तार."],
+  ["End-to-End Support", "From understanding the requirement to completion.", "सुरुवातीपासून शेवटपर्यंत सहाय्य", "गरज समजून घेण्यापासून पूर्णत्वापर्यंत."],
 ] as const;
 
 export const participationPaths = [
-  ["Member", "Use services and stay connected to the ecosystem.", Users],
-  ["Partner", "Bring expertise and help people move forward.", Handshake],
-  ["Centre", "Extend useful assistance into local communities.", Landmark],
-  ["Service Provider", "Offer trusted capability where it is needed.", Handshake],
+  ["Member", "Use services and stay connected to the ecosystem.", Users, "सदस्य", "सेवांचा वापर करा आणि परिसंस्थेशी जोडलेले रहा."],
+  ["Partner", "Bring expertise and help people move forward.", Handshake, "भागीदार", "कौशल्य आणा आणि लोकांना पुढे जाण्यास मदत करा."],
+  ["Centre", "Extend useful assistance into local communities.", Landmark, "केंद्र", "स्थानिक समुदायांपर्यंत उपयुक्त सहाय्य पोहोचवा."],
+  ["Service Provider", "Offer trusted capability where it is needed.", Handshake, "सेवा पुरवठादार", "जिथे गरज आहे तिथे विश्वासार्ह क्षमता द्या."],
 ] as const;
 
 export function getService(slug: string) { return services.find((service) => service.slug === slug); }
