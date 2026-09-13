@@ -1,10 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, CheckCircle2, Clock3, FileText, Lock, MessageCircle, RotateCcw, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, Clock3, FileText, Lock, MessageCircle, Printer, RotateCcw, Share2, ShieldCheck } from "lucide-react";
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { getJourneyPath, diagnosticIntents, JourneyPath } from "../data/journey";
-import { buildWhatsAppLink, knowledge, services } from "../data/site";
+import { buildWhatsAppLink, buildWhatsAppShareLink, knowledge, services } from "../data/site";
+import { schemeCategoryTitles, schemesForPath } from "../data/schemes";
+
+const categoryPalette: Record<string, string> = { Business: "#b8872e", Finance: "#2f776d", "Real Estate": "#5b6fd9", "Society & Community": "#a0522d", "Farmer & Rural": "#3f8f4f", "Government & Schemes": "#8452c9", "Registrations & Compliance": "#c2574a", "Community & Local Services": "#3b8fa3", Participation: "#946c1f", "Planning & context": "#8a94a3" };
+function categoryFor(step: JourneyPath["roadmap"][number]) { const service = step.serviceSlug ? services.find((candidate) => candidate.slug === step.serviceSlug) : null; return service?.category ?? "Planning & context"; }
+function colorFor(category: string) { return categoryPalette[category] ?? "#8a94a3"; }
 
 const labels: Record<string, string> = { new: "Something new", existing: "An existing activity", manufacturing: "Manufacturing", services: "Services", trading: "Trading", food: "Food or agriculture", maharashtra: "Maharashtra", gujarat: "Gujarat", funding: "Funding", foundation: "Registration and setup", growth: "Growth and market access", compliance: "Compliance", plan: "A project or business plan", documents: "Some documents and estimates", application: "An application already in progress" };
 
@@ -53,7 +58,31 @@ function DiagnosticIntro() { return <div className="diagnostic-intro"><p classNa
 function DiagnosticResult({ path, answers, onReset }: { path: JourneyPath; answers: { key: string; value: string }[]; onReset: () => void }) {
   const recommended = path.relatedServices.map((slug) => services.find((service) => service.slug === slug)).filter(Boolean);
   const relatedArticles = path.relatedKnowledge.map((slug) => knowledge.find((article) => article.slug === slug)).filter(Boolean);
-  return <section className="roadmap-shell"><div className="container roadmap-container"><div className="roadmap-top"><div><p className="eyebrow">Your Sahaciety Path</p><h1>{path.title}</h1><p>{path.summary}</p></div><button className="back-link" onClick={onReset}><RotateCcw size={16} /> Start again</button></div><div className="profile-strip"><div><span>Your goal</span><strong>{path.title.replace("Your ", "")}</strong></div>{answers.slice(0, 3).map(({ key, value }) => <div key={key}><span>{key.replace(/^[^-]+-/, "").replace(/-/g, " ")}</span><strong>{value}</strong></div>)}</div><div className="roadmap-heading"><div><p className="eyebrow">Recommended roadmap</p><h2>Here is what may need to happen next.</h2></div><span className="roadmap-disclaimer"><ShieldCheck size={16} /> Guidance, not a guarantee</span></div><div className="roadmap-list">{path.roadmap.map((step, index) => <RoadmapStepCard step={step} index={index} key={step.title} />)}</div><LeadCapturePanel path={path} answers={answers} />{recommended.length > 0 && <section className="recommended-section"><div><p className="eyebrow">Connected services</p><h2>You may also need</h2></div><div className="related-service-grid">{recommended.map((service) => service && <Link href={`/service/${service.slug}`} className="related-service" key={service.slug}><span>{service.category}</span><strong>{service.title}</strong><ArrowRight size={16} /></Link>)}</div></section>}{relatedArticles.length > 0 && <section className="recommended-section"><div><p className="eyebrow">Keep learning</p><h2>Guides for this path</h2></div><div className="related-service-grid">{relatedArticles.map((article) => article && <Link href={`/knowledge/${article.slug}`} className="related-service" key={article.slug}><span>{article.category}</span><strong>{article.title}</strong><ArrowRight size={16} /></Link>)}</div></section>}<div className="roadmap-next"><div><p className="eyebrow">Your next step</p><h2>Ready to check a specific service?</h2><p>Choose a recommended service or tell Sahaciety more about your requirement.</p></div><Link href="/contact" className="button button-dark">Talk to Sahaciety <ArrowRight size={17} /></Link></div></div></section>;
+  const matchedSchemes = schemesForPath(path.slug, 3);
+  return <section className="roadmap-shell"><div className="container roadmap-container"><div className="roadmap-top"><div><p className="eyebrow">Your Sahaciety Path</p><h1>{path.title}</h1><p>{path.summary}</p></div><button className="back-link" onClick={onReset}><RotateCcw size={16} /> Start again</button></div><div className="profile-strip"><div><span>Your goal</span><strong>{path.title.replace("Your ", "")}</strong></div>{answers.slice(0, 3).map(({ key, value }) => <div key={key}><span>{key.replace(/^[^-]+-/, "").replace(/-/g, " ")}</span><strong>{value}</strong></div>)}</div><div className="roadmap-heading"><div><p className="eyebrow">Recommended roadmap</p><h2>Here is what may need to happen next.</h2></div><span className="roadmap-disclaimer"><ShieldCheck size={16} /> Guidance, not a guarantee</span></div><MilestoneSummary path={path} /><div className="roadmap-list">{path.roadmap.map((step, index) => <RoadmapStepCard step={step} index={index} key={step.title} />)}</div>{matchedSchemes.length > 0 && <section className="recommended-section"><div><p className="eyebrow">Schemes that may be relevant</p><h2>Worth checking for this path</h2></div><div className="scheme-match-grid">{matchedSchemes.map((scheme) => <Link href={`/schemes/${scheme.slug}`} className="scheme-match-card" key={scheme.slug}><span className="scheme-card-category">{schemeCategoryTitles[scheme.category] ?? scheme.category}</span><strong>{scheme.title}</strong><span className="scheme-tagline">{scheme.tagline}</span><span className="text-link">View scheme <ArrowUpRight size={15} /></span></Link>)}</div><p className="detail-muted">Eligibility depends on your specific case - confirm current terms with the implementing body or a Sahaciety specialist.</p></section>}<LeadCapturePanel path={path} answers={answers} />{recommended.length > 0 && <section className="recommended-section"><div><p className="eyebrow">Connected services</p><h2>You may also need</h2></div><div className="related-service-grid">{recommended.map((service) => service && <Link href={`/service/${service.slug}`} className="related-service" key={service.slug}><span>{service.category}</span><strong>{service.title}</strong><ArrowRight size={16} /></Link>)}</div></section>}{relatedArticles.length > 0 && <section className="recommended-section"><div><p className="eyebrow">Keep learning</p><h2>Guides for this path</h2></div><div className="related-service-grid">{relatedArticles.map((article) => article && <Link href={`/knowledge/${article.slug}`} className="related-service" key={article.slug}><span>{article.category}</span><strong>{article.title}</strong><ArrowRight size={16} /></Link>)}</div></section>}<div className="roadmap-next"><div><p className="eyebrow">Your next step</p><h2>Ready to check a specific service?</h2><p>Choose a recommended service or tell Sahaciety more about your requirement.</p></div><Link href="/contact" className="button button-dark">Talk to Sahaciety <ArrowRight size={17} /></Link></div></div></section>;
+}
+
+function MilestoneSummary({ path }: { path: JourneyPath }) {
+  const categories = path.roadmap.map(categoryFor);
+  const counts = categories.reduce<Record<string, number>>((acc, category) => ({ ...acc, [category]: (acc[category] ?? 0) + 1 }), {});
+  const uniqueCategories = Object.keys(counts);
+
+  function handleShare() {
+    const lines = [`My Sahaciety roadmap: ${path.title}`, path.summary, "", ...path.roadmap.map((step, index) => `${index + 1}. ${step.title}`), "", "See your own roadmap at sahaciety.in/diagnostic"];
+    window.open(buildWhatsAppShareLink(lines.join("\n")), "_blank", "noopener,noreferrer");
+  }
+
+  return <div className="milestone-summary">
+    <div className="milestone-summary-top">
+      <span>{path.roadmap.length} milestones · {uniqueCategories.length} area{uniqueCategories.length === 1 ? "" : "s"} covered</span>
+      <div className="milestone-summary-actions">
+        <button className="button button-outline button-small" type="button" onClick={handleShare}>Share on WhatsApp <Share2 size={15} /></button>
+        <button className="button button-outline button-small" type="button" onClick={() => window.print()}>Save as PDF <Printer size={15} /></button>
+      </div>
+    </div>
+    <div className="milestone-bar">{categories.map((category, index) => <span key={`${category}-${index}`} style={{ background: colorFor(category) }} />)}</div>
+    <div className="milestone-tags">{uniqueCategories.map((category) => <span key={category}><i style={{ background: colorFor(category) }} />{category} × {counts[category]}</span>)}</div>
+  </div>;
 }
 
 function LeadCapturePanel({ path, answers }: { path: JourneyPath; answers: { key: string; value: string }[] }) {

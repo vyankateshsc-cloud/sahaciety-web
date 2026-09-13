@@ -17,6 +17,7 @@ export type Service = { slug: string; title: string; category: string; summary: 
 export const contactPhoneDisplay = "+91 84839 16755";
 export const whatsappNumber = "918483916755";
 export function buildWhatsAppLink(message: string) { return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`; }
+export function buildWhatsAppShareLink(message: string) { return `https://wa.me/?text=${encodeURIComponent(message)}`; }
 
 export const ecosystem = [
   { title: "Citizens & Families", summary: "Benefits, finance, documentation, property and essential services.", icon: Users, href: "/solutions/individual" },
