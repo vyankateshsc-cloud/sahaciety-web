@@ -14,6 +14,10 @@ import {
 
 export type Service = { slug: string; title: string; category: string; summary: string; detail: string; audience: string; icon: LucideIcon; bullets: string[] };
 
+export const contactPhoneDisplay = "+91 84839 16755";
+export const whatsappNumber = "918483916755";
+export function buildWhatsAppLink(message: string) { return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`; }
+
 export const ecosystem = [
   { title: "Citizens & Families", summary: "Benefits, finance, documentation, property and essential services.", icon: Users, href: "/solutions/individual" },
   { title: "Businesses & Entrepreneurs", summary: "Setup, funding, compliance, certifications, growth and advisory.", icon: Building2, href: "/solutions/business" },

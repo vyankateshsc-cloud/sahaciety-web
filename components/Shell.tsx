@@ -1,11 +1,16 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, MessageCircle } from "lucide-react";
 import { ReactNode } from "react";
 import MobileNav from "./MobileNav";
 import Logo from "./Logo";
+import { buildWhatsAppLink } from "../data/site";
 
 export function Header() {
-  return <header className="site-header"><div className="container header-inner"><Logo /><nav className="desktop-nav" aria-label="Primary navigation"><Link href="/services">Services</Link><Link href="/solutions">Solutions</Link><Link href="/about">About</Link><Link href="/knowledge">Knowledge</Link><Link href="/partners">Partners</Link></nav><div className="header-actions"><Link href="/login" className="login-link">Login</Link><Link href="/diagnostic" className="button button-small button-light">Get started <ArrowUpRight size={16} /></Link><MobileNav /></div></div></header>;
+  return <><header className="site-header"><div className="container header-inner"><Logo /><nav className="desktop-nav" aria-label="Primary navigation"><Link href="/services">Services</Link><Link href="/solutions">Solutions</Link><Link href="/about">About</Link><Link href="/knowledge">Knowledge</Link><Link href="/partners">Partners</Link></nav><div className="header-actions"><Link href="/login" className="login-link">Login</Link><Link href="/diagnostic" className="button button-small button-light">Get started <ArrowUpRight size={16} /></Link><MobileNav /></div></div></header><WhatsAppFab /></>;
+}
+
+function WhatsAppFab() {
+  return <a className="whatsapp-fab" href={buildWhatsAppLink("Hi Sahaciety, I'd like some help.")} target="_blank" rel="noopener noreferrer" aria-label="Chat with Sahaciety on WhatsApp"><MessageCircle size={22} /><span>Chat with us</span></a>;
 }
 
 export function Footer() {
